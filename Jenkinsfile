@@ -9,7 +9,7 @@ pipeline {
                 stage('Checkout') {
                         steps {
                                 git branch: 'main',
-                                url: 'https://github.com/gsoh-1316/source-maven-java-spring-hello-webapp.git'
+                                url: 'https://github.com/dltnals1210/source-maven-java-spring-hello-webapp.git'
                         }
                 }
                 stage('Build') {
@@ -19,9 +19,8 @@ pipeline {
                 }
                 stage('Deploy') {
                         steps {
-                                deploy adapters: [tomcat9(credentialsId: 'tomcat-manager', url: 'http://192.168.56.22:8080')], contextPath: null, war: 'target/hello-world.war'
+                                deploy adapters: [tomcat9(credentialsId: 'tomcatmanager', url: 'http://192.168.56.22:8080')], contextPath: null, war: 'target/hello-world.war'
                         }
                 }
         }
 }
-
